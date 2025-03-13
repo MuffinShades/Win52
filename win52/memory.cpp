@@ -1,4 +1,4 @@
-#include "memcpy.hpp"
+#include "memory.hpp"
 
 //reference https://github.com/skywind3000/FastMemcpy/blob/master/FastMemcpy_Avx.h
 
@@ -6,7 +6,7 @@
 #include <stddef.h>
 #include <stdint.h>
 
-#include "msutil.hpp"
+#include "util.hpp"
 #include "types.hpp"
 
 #if (defined(_WIN32) || defined(WIN32))
