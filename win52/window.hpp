@@ -2,7 +2,7 @@
 #include <windows.h>
 #include <iostream>
 
-namespace win52 {
+namespace Win52 {
 	class Window {
 	public:
 		HWND hwnd = NULL;
