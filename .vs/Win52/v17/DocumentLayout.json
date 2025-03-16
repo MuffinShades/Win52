@@ -3,16 +3,24 @@
   "WorkspaceRootPath": "C:\\Users\\chris\\OneDrive\\Desktop\\Win52\\",
   "Documents": [
     {
-      "AbsoluteMoniker": "D:0:0:{A34F5144-FE3A-47AE-B534-C9F78D909B32}|win52\\win52.vcxproj|C:\\Users\\chris\\OneDrive\\Desktop\\Win52\\win52\\window.hpp||{D0E1A5C6-B359-4E41-9B60-3365922C2A22}",
-      "RelativeMoniker": "D:0:0:{A34F5144-FE3A-47AE-B534-C9F78D909B32}|win52\\win52.vcxproj|solutionrelative:win52\\window.hpp||{D0E1A5C6-B359-4E41-9B60-3365922C2A22}"
-    },
-    {
       "AbsoluteMoniker": "D:0:0:{A34F5144-FE3A-47AE-B534-C9F78D909B32}|win52\\win52.vcxproj|C:\\Users\\chris\\OneDrive\\Desktop\\Win52\\win52\\main.cpp||{D0E1A5C6-B359-4E41-9B60-3365922C2A22}",
       "RelativeMoniker": "D:0:0:{A34F5144-FE3A-47AE-B534-C9F78D909B32}|win52\\win52.vcxproj|solutionrelative:win52\\main.cpp||{D0E1A5C6-B359-4E41-9B60-3365922C2A22}"
     },
     {
+      "AbsoluteMoniker": "D:0:0:{A34F5144-FE3A-47AE-B534-C9F78D909B32}|win52\\win52.vcxproj|C:\\Users\\chris\\OneDrive\\Desktop\\Win52\\win52\\win52.hpp||{D0E1A5C6-B359-4E41-9B60-3365922C2A22}",
+      "RelativeMoniker": "D:0:0:{A34F5144-FE3A-47AE-B534-C9F78D909B32}|win52\\win52.vcxproj|solutionrelative:win52\\win52.hpp||{D0E1A5C6-B359-4E41-9B60-3365922C2A22}"
+    },
+    {
       "AbsoluteMoniker": "D:0:0:{A34F5144-FE3A-47AE-B534-C9F78D909B32}|win52\\win52.vcxproj|C:\\Users\\chris\\OneDrive\\Desktop\\Win52\\win52\\memory.hpp||{D0E1A5C6-B359-4E41-9B60-3365922C2A22}",
       "RelativeMoniker": "D:0:0:{A34F5144-FE3A-47AE-B534-C9F78D909B32}|win52\\win52.vcxproj|solutionrelative:win52\\memory.hpp||{D0E1A5C6-B359-4E41-9B60-3365922C2A22}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{A34F5144-FE3A-47AE-B534-C9F78D909B32}|win52\\win52.vcxproj|C:\\Users\\chris\\OneDrive\\Desktop\\Win52\\win52\\window.cpp||{D0E1A5C6-B359-4E41-9B60-3365922C2A22}",
+      "RelativeMoniker": "D:0:0:{A34F5144-FE3A-47AE-B534-C9F78D909B32}|win52\\win52.vcxproj|solutionrelative:win52\\window.cpp||{D0E1A5C6-B359-4E41-9B60-3365922C2A22}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{A34F5144-FE3A-47AE-B534-C9F78D909B32}|win52\\win52.vcxproj|C:\\Users\\chris\\OneDrive\\Desktop\\Win52\\win52\\window.hpp||{D0E1A5C6-B359-4E41-9B60-3365922C2A22}",
+      "RelativeMoniker": "D:0:0:{A34F5144-FE3A-47AE-B534-C9F78D909B32}|win52\\win52.vcxproj|solutionrelative:win52\\window.hpp||{D0E1A5C6-B359-4E41-9B60-3365922C2A22}"
     }
   ],
   "DocumentGroupContainers": [
@@ -22,7 +30,7 @@
       "DocumentGroups": [
         {
           "DockedWidth": 200,
-          "SelectedChildIndex": 9,
+          "SelectedChildIndex": 12,
           "Children": [
             {
               "$type": "Bookmark",
@@ -62,26 +70,52 @@
             },
             {
               "$type": "Document",
-              "DocumentIndex": 0,
+              "DocumentIndex": 1,
+              "Title": "win52.hpp",
+              "DocumentMoniker": "C:\\Users\\chris\\OneDrive\\Desktop\\Win52\\win52\\win52.hpp",
+              "RelativeDocumentMoniker": "win52\\win52.hpp",
+              "ToolTip": "C:\\Users\\chris\\OneDrive\\Desktop\\Win52\\win52\\win52.hpp",
+              "RelativeToolTip": "win52\\win52.hpp",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAAAEAAAAVAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000680|",
+              "WhenOpened": "2025-03-13T01:08:42.092Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 3,
+              "Title": "window.cpp",
+              "DocumentMoniker": "C:\\Users\\chris\\OneDrive\\Desktop\\Win52\\win52\\window.cpp",
+              "RelativeDocumentMoniker": "win52\\window.cpp",
+              "ToolTip": "C:\\Users\\chris\\OneDrive\\Desktop\\Win52\\win52\\window.cpp",
+              "RelativeToolTip": "win52\\window.cpp",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAAAYAAAAAAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000677|",
+              "WhenOpened": "2025-03-13T01:07:33.307Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 4,
               "Title": "window.hpp",
               "DocumentMoniker": "C:\\Users\\chris\\OneDrive\\Desktop\\Win52\\win52\\window.hpp",
               "RelativeDocumentMoniker": "win52\\window.hpp",
               "ToolTip": "C:\\Users\\chris\\OneDrive\\Desktop\\Win52\\win52\\window.hpp",
               "RelativeToolTip": "win52\\window.hpp",
-              "ViewState": "AgIAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA==",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAAAQAAAALAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000680|",
               "WhenOpened": "2025-03-13T01:07:22.412Z",
               "EditorCaption": ""
             },
             {
               "$type": "Document",
-              "DocumentIndex": 1,
+              "DocumentIndex": 0,
               "Title": "main.cpp",
               "DocumentMoniker": "C:\\Users\\chris\\OneDrive\\Desktop\\Win52\\win52\\main.cpp",
               "RelativeDocumentMoniker": "win52\\main.cpp",
               "ToolTip": "C:\\Users\\chris\\OneDrive\\Desktop\\Win52\\win52\\main.cpp",
               "RelativeToolTip": "win52\\main.cpp",
-              "ViewState": "AgIAAAAAAAAAAAAAAAAAAAYAAAABAAAAAAAAAA==",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAAAQAAAAMAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000677|",
               "WhenOpened": "2025-03-13T01:05:38.312Z",
               "EditorCaption": ""

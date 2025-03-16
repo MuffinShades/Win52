@@ -18,7 +18,7 @@
     <ClInclude Include="util.hpp">
       <Filter>Header Files</Filter>
     </ClInclude>
-    <ClInclude Include="memory.hpp">
+    <ClInclude Include="quickmem.hpp">
       <Filter>Header Files</Filter>
     </ClInclude>
     <ClInclude Include="types.hpp">
@@ -33,9 +33,12 @@
     <ClInclude Include="win52.hpp">
       <Filter>Header Files</Filter>
     </ClInclude>
+    <ClInclude Include="MultiStr.hpp">
+      <Filter>Header Files</Filter>
+    </ClInclude>
   </ItemGroup>
   <ItemGroup>
-    <ClCompile Include="memory.cpp">
+    <ClCompile Include="quickmem.cpp">
       <Filter>Source Files</Filter>
     </ClCompile>
     <ClCompile Include="main.cpp">
@@ -44,5 +47,13 @@
     <ClCompile Include="window.cpp">
       <Filter>Source Files</Filter>
     </ClCompile>
+    <ClCompile Include="MultiStr.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="strutil.hpp">
+      <Filter>Header Files</Filter>
+    </None>
   </ItemGroup>
 </Project>

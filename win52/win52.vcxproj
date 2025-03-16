@@ -127,7 +127,8 @@
     </Link>
   </ItemDefinitionGroup>
   <ItemGroup>
-    <ClInclude Include="memory.hpp" />
+    <ClInclude Include="quickmem.hpp" />
+    <ClInclude Include="MultiStr.hpp" />
     <ClInclude Include="types.hpp" />
     <ClInclude Include="util.hpp" />
     <ClInclude Include="win52.hpp" />
@@ -136,8 +137,12 @@
   </ItemGroup>
   <ItemGroup>
     <ClCompile Include="main.cpp" />
-    <ClCompile Include="memory.cpp" />
+    <ClCompile Include="quickmem.cpp" />
+    <ClCompile Include="MultiStr.cpp" />
     <ClCompile Include="window.cpp" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="strutil.hpp" />
   </ItemGroup>
   <Import Project="$(VCTargetsPath)\Microsoft.Cpp.targets" />
   <ImportGroup Label="ExtensionTargets">
