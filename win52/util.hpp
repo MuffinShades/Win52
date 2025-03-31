@@ -3,6 +3,7 @@
 #include <cstring>
 #include <vector>
 #include "types.hpp"
+#include <Windows.h>
 
 template<class _Ty> inline static void ZeroMem(_Ty* dat, size_t sz) {
     if (dat == nullptr) return;
@@ -343,5 +344,28 @@ constexpr static IntFormat __getOSEndian() {
     const int v = 1;
     //return (_endian_test()).b ? ByteStream_LittleEndian : ByteStream_BigEndian;
     return ((*((char*)&v)) == 1) ? IntFormat_LittleEndian : IntFormat_BigEndian;
+};
+
+//template<class _Ty> using Comparator = (int32_t)(*)(_Ty, _Ty);
+
+static bool memeq(void* a, void* b, size_t sz) {
+    forrange(sz)
+        if (*((char*)a + i) != *((char*)b + i))
+            return false;
+
+    return true;
 }
 
+//TODO: this :3
+class SharedInstance {
+private:
+    size_t i_count = 0;
+public:
+    SharedInstance operator=(SharedInstance s) {
+
+    }
+
+    void share_free() {
+        //if (this->i_count)
+    }
+};
