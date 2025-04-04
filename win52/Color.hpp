@@ -62,4 +62,17 @@ namespace Win52 {
 			this->i = WIN52_MODIFY_COLOR_CHANNEL(this->i, 3, a);
 		}
 	};
+
+	struct GradColorStop {
+		Point p;
+		Color c;
+	};
+
+	class Gradient {
+	private:
+		std::vector<GradColorStop> stops;
+	public:
+		Gradient(GradColorStop s[]);
+		Gradient(std::vector<GradColorStop> s[]);
+	};
 }

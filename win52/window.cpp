@@ -28,7 +28,7 @@ Win52::Window::Window(Str title, int x, int y, int w, int h) {
 	}
 
 	//create the window
-	this->hwnd = CreateWindowEx(
+	this->_hwnd = CreateWindowEx(
 		NULL,
 		TEXT(WIN52_WINCLASS_DEFAULT),
 		t_str,
@@ -43,22 +43,22 @@ Win52::Window::Window(Str title, int x, int y, int w, int h) {
 		NULL //use this to pass some sort of struct to the windwo
 	);
 
-	if (!this->hwnd) {
+	if (!this->_hwnd) {
 		std::cout << "Failed to create window :/" << std::endl;
 		return;
 	}
 
-	this->hdc = GetDC(this->hwnd);
+	this->hdc = GetDC(this->_hwnd);
 
-	ShowWindow(this->hwnd, SW_SHOW);
+	ShowWindow(this->_hwnd, SW_SHOW);
 }
 
 bool Window::Update() {
-	if (!this->hwnd) return 0;
+	if (!this->_hwnd) return 0;
 
 	//TODO: thread this so when get message doesnt return a message the whole program doesn't stop
 	MSG msg;
-	i32 win_run = GetMessage(&msg, this->hwnd, 0, 0);
+	i32 win_run = GetMessage(&msg, this->_hwnd, 0, 0);
 
 	//
 	TranslateMessage(&msg);

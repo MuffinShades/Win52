@@ -29,12 +29,12 @@ namespace Win52 {
 		void free();
 		void prevent_free(); //used in constructors to prevent certain issue
 	public:
-		operator wchar_t*() const;
-		operator char*() const;
+		operator wchar_t* () const;
+		operator char* () const;
 		operator std::string() const;
 
-		operator const wchar_t*() const;
-		operator const char*() const;
+		operator const wchar_t* () const;
+		operator const char* () const;
 
 		Str operator=(wchar_t* w_str);
 		Str operator=(char* c_str);
@@ -67,4 +67,4 @@ namespace Win52 {
 				return __out_stream << "";
 		}
 	};
-}
+};

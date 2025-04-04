@@ -39,6 +39,4 @@ void GroupBox::HWNDCreate() {
 		(HINSTANCE)GetWindowLongPtr(p_win, GWLP_HINSTANCE),
 		NULL
 	);
-
-	std::cout << "Win: " << this->hwnd << std::endl;
 }

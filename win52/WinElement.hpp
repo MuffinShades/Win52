@@ -4,6 +4,9 @@
 #include "Str.hpp"
 #include "window.hpp"
 #include "Font.hpp"
+#include "Paint.hpp"
+ 
+#define __WIN52_PCONTEXT L"__Win52_iwContext_0"
 
 
 //Use get prop / set prop to set properties for a window
@@ -17,7 +20,37 @@ enum WinType {
 	WinType_TextInput,
 	WinType_NumInput,
 	WinType_GroupBox,
-	WinType_Progress
+	WinType_Progress,
+	WinType_Calendar,
+	WinType_CheckBox,
+	WinType_Radio,
+	WinType_DropDown,
+	WinType_Tree,
+	WinType_ColorInput,
+	WinType_DateInput,
+	WinType_Slider,
+	WinType_Textarea,
+	WinType_RichText,
+	WinType_FileInput,
+	WinType_Link,
+	WinType_IpInput,
+	WinType_Rebar,
+	WinType_Toolbar,
+	WinType_TabBox,
+	WinType_Icon,
+	WinType_Animation,
+	WinType_UpDown,
+	WinType_ListView,
+	WinType_ListBox,
+	WinType_Header,
+	WinType_Footer, //(Status bar)
+	WinType_HotKey,
+	WinType_Pager,
+	//Custom
+	WinType_SplitLayout,
+	WinType_GridLayout,
+	WinType_HexEdit,
+	WinType_OpenGLCanvas
 };
 
 struct WinId {
@@ -33,6 +66,7 @@ struct WinDimension {
 };
 
 enum GenericWinInfo_Ty {
+	gwit_Null,
 	gwit_Win,
 	gwit_Elem
 };
@@ -45,6 +79,24 @@ struct GenericWinInfo {
 		class WinElement* ele;
 	} p;
 };
+
+struct WinContext {
+	HWND hwnd;
+	HDC hdc;
+	PaintContext paint;
+	GenericWinInfo_Ty ty = gwit_Null;
+	union {
+		Win52::Window* win;
+		class WinElement* ele;
+	} p;
+	struct {
+		UINT uMsg;
+		WPARAM wParam;
+		LPARAM lParam;
+	} EventInf = {0};
+};
+
+extern WinContext* decodeContext(HWND hwnd, UINT uMsg, WPARAM wParam, LPARAM lParam, bool addPaintContext = false);
 
 class WinElement {
 private:
@@ -61,11 +113,16 @@ protected:
 	WinFont font;
 	HDC hdc;
 	Window* win_origin = nullptr;
+	Color bg;
+
+	std::shared_ptr<WinContext> wContext = nullptr;
 
 	void LoadDC();
-
 	HWND getParentHWND();
 	void EleGen();
+	void GenerateContext();
+	void UpdateHWNDContext();
+	void ComputeBoundingRegion();
 
 	virtual void HWNDCreate() {
 		this->hwnd = NULL;
@@ -100,11 +157,13 @@ public:
 
 	//functions to add
 	void setFont(Font f);
-	void setTextColor();
-	void setBgColor();
+	void setTextColor(Color c);
+	void setBgColor(Color cs);
 	//...
 
 	static void SetDefaultFont(Font f);
+
+	~WinElement();
 };
 
 //basically same thing as win element except can contain elements

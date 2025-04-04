@@ -76,7 +76,7 @@ WinElement::WinElement(WinType ty, Win52::Window* win, WinId id) : ty(ty) {
 	this->pos = {};
 
 	this->parent = {
-		.hwnd = win->hwnd,
+		.hwnd = win->hwnd(),
 		.ty = gwit_Win,
 		.p = {
 			.win = win
@@ -97,7 +97,7 @@ WinElement::WinElement(WinType ty, Win52::Window* win, WinId id, i32 x, i32 y, i
 	this->hwnd = NULL;
 
 	this->parent = {
-		.hwnd = win->hwnd,
+		.hwnd = win->hwnd(),
 		.ty = gwit_Win,
 		.p = {
 			.win = win
@@ -122,7 +122,7 @@ WinElement::WinElement(WinType ty, Win52::Window* win, WinId id, WinDimension po
 	this->hwnd = NULL;
 
 	this->parent = {
-		.hwnd = win->hwnd,
+		.hwnd = win->hwnd(),
 		.ty = gwit_Win,
 		.p = {
 			.win = win
@@ -261,7 +261,7 @@ HWND WinElement::getParentHWND() {
 		return this->parent.hwnd;
 
 	if (this->win_origin)
-		return this->win_origin->hwnd;
+		return this->win_origin->hwnd();
 }
 
 void WinElement::EleGen() {
@@ -289,6 +289,43 @@ void WinElement::SetDefaultFont(Font f) {
 	}
 }
 
+void WinElement::GenerateContext() {
+	if (this->wContext)
+		this->wContext = nullptr;
+
+	if (!this->hwnd) return;
+
+	this->wContext = std::make_shared<WinContext>();
+
+	//set context values
+	this->wContext->hwnd = this->hwnd;
+	this->wContext->hdc = this->hdc;
+	this->wContext->ty = gwit_Elem;
+	this->wContext->p.ele = this;
+
+	//update internal context thing
+	this->UpdateHWNDContext();
+}
+
+void WinElement::UpdateHWNDContext() {
+	if (this->hwnd)
+		SetProp(this->hwnd, __WIN52_PCONTEXT, reinterpret_cast<HANDLE>(this->wContext.get()));
+}
+
+WinElement::~WinElement() {
+	if (this->hwnd) {
+		SetProp(this->hwnd, __WIN52_PCONTEXT, (HANDLE)NULL);
+		DestroyWindow(this->hwnd);
+	}
+	this->hwnd = NULL;
+
+	if (this->hdc)
+		DeleteDC(this->hdc);
+	this->hdc = NULL;
+
+	ZeroMem(this, sizeof(*this)); //ye
+}
+
 //---------------------
 //-Win Container Stuff-
 //---------------------
@@ -313,4 +350,34 @@ WinDimension WinContainer::getPadding() {
 
 void WinContainer::ContainerStep() {
 	return;
+}
+
+//Context stuff
+
+WinContext* Win52::decodeContext(HWND hwnd, UINT uMsg, WPARAM wParam, LPARAM lParam, bool addPaintContext) {
+	if (!hwnd) return nullptr;
+
+	WinContext* iContext = reinterpret_cast<WinContext*>(GetProp(hwnd, __WIN52_PCONTEXT));
+
+	if (!iContext) return nullptr;
+
+	//add event info to context
+	iContext->EventInf = {
+		.uMsg = uMsg,
+		.wParam = wParam,
+		.lParam = lParam
+	};
+
+	//get dc
+	if (iContext->hdc)
+		DeleteDC(iContext->hdc);
+	iContext->hdc = GetDC(iContext->hwnd);
+
+	//create painting context
+	if (addPaintContext)
+		iContext->paint = PaintContext(iContext, false);
+	else
+		iContext->paint = NULL;
+
+	return iContext;
 }
